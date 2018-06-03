@@ -18,20 +18,36 @@ Alarm for Raspberry PI
 ### Dependencies Instalation
 *Centos
 ```sh
+yum install git
 yum install libpcap-devel
 ```
 *Fedora
 ```sh
+dnf install git
 dnf install libpcap-devel
 ```
 
 *Debian
 ```sh
-
+apt-get install libpcap-dev
+apt-get install i2c-tools
 ```
 
 ```sh
+su
+cd /opt/
 git clone https://github.com/mfontanini/libtins.git
+# Create the build directory
+mkdir build
+cd build
+
+# Configure the project. Add any relevant configuration flags
+cmake ../
+
+# Compile!
+make
+make install
+ldconfig
 ```
 
 ### Compile and run
