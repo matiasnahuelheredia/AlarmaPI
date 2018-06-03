@@ -15,3 +15,10 @@ Alarm for Raspberry PI
 * For HTTPS: OpenSSL libraries 
 * libpcap
 * openssl
+
+### Compile and run
+Compile with
+```sh
+make
+./Alarma
+```
