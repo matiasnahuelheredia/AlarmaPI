@@ -22,6 +22,8 @@ yum install git -y
 yum install libpcap-devel -y
 yum install cmake -y
 yum install openssl* -y
+yum install i2c-tools -y
+yum install *boost* -y
 ```
 *Fedora
 ```sh
@@ -29,6 +31,8 @@ dnf install git -y
 dnf install *libpcap* -y
 dnf install cmake -y
 dnf install *openssl* -y
+dnf install i2c-tools -y
+dnf install boost* -y
 ```
 
 *Debian
@@ -37,7 +41,8 @@ apt-get install libpcap-dev -y
 apt-get install i2c-tools -y
 apt-get install cmake -y
 apt-get install openssl-devel -y
-
+apt-get install boost* -y
+apt-get update -y
 ```
 
 ```sh
@@ -55,6 +60,14 @@ cmake ../ -DLIBTINS_ENABLE_CXX11=1
 make
 make install
 ldconfig
+
+cd /opt/
+git clone https://github.com/eidheim/Simple-Web-Server.git
+mkdir build
+cd build
+cmake ..
+make
+cd ..
 ```
 
 ### Compile and run
