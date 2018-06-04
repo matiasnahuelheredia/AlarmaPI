@@ -11,6 +11,7 @@
 #include <tins/tins.h>
 #include <iostream>
 #include <tins/tins.h>
+#include <string>
 
 using namespace Tins;
 using namespace std;
@@ -25,6 +26,6 @@ bool callback(const PDU &pdu) {
     return true;
 }
 
-int main() {
-    Sniffer("wlan0").sniff_loop(callback);
+int main(int argc, char* argv[]) {
+    Sniffer(argv[1]).sniff_loop(callback);
 }
