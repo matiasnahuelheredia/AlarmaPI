@@ -26,7 +26,6 @@ bool handler(const PDU& pdu) {
     const Dot11Data &ip = pdu.rfind_pdu<Dot11Data>(); // Find the IP layer
     std::cout << ip.src_addr() << " -> "
               << ip.dst_addr() << ':' << std::endl;
-
     return true;
 }
 

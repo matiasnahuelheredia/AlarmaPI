@@ -1,11 +1,11 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0 -std=c++11
 
-OBJS =		Alarma.o
+OBJS =		src/Alarma.o
 
 
 LIBS = -lpthread -ltins 
 
-TARGET =	Alarma
+TARGET =	build/Alarma
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
