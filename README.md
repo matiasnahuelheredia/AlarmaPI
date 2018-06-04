@@ -18,19 +18,26 @@ Alarm for Raspberry PI
 ### Dependencies Instalation
 *Centos
 ```sh
-yum install git
-yum install libpcap-devel
+yum install git -y
+yum install libpcap-devel -y
+yum install cmake -y
+yum install openssl-devel -y
 ```
 *Fedora
 ```sh
-dnf install git
-dnf install libpcap-devel
+dnf install git -y
+dnf install libpcap-devel -y
+dnf install cmake -y
+dnf install openssl-devel -y
 ```
 
 *Debian
 ```sh
-apt-get install libpcap-dev
-apt-get install i2c-tools
+apt-get install libpcap-dev -y
+apt-get install i2c-tools -y
+apt-get install cmake -y
+apt-get install openssl-devel -y
+
 ```
 
 ```sh
