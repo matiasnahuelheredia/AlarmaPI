@@ -21,14 +21,14 @@ Alarm for Raspberry PI
 yum install git -y
 yum install libpcap-devel -y
 yum install cmake -y
-yum install openssl-devel -y
+yum install openssl* -y
 ```
 *Fedora
 ```sh
 dnf install git -y
-dnf install libpcap-devel -y
+dnf install *libpcap* -y
 dnf install cmake -y
-dnf install openssl-devel -y
+dnf install *openssl* -y
 ```
 
 *Debian
@@ -49,7 +49,7 @@ mkdir build
 cd build
 
 # Configure the project. Add any relevant configuration flags
-cmake ../
+cmake ../ -DLIBTINS_ENABLE_CXX11=1
 
 # Compile!
 make

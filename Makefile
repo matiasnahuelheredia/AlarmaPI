@@ -1,8 +1,8 @@
-CXXFLAGS =	-O3 -g -Wall -fmessage-length=0 -std=c++11
+CXXFLAGS =	-O2 -g -Wall -fmessage-length=0 -std=c++11
 
 OBJS =		Alarma.o
 
-LIBS =  -lpthread -ltins
+LIBS = -lpthread -ltins 
 
 TARGET =	Alarma
 
