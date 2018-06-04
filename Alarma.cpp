@@ -26,5 +26,5 @@ bool callback(const PDU &pdu) {
 }
 
 int main() {
-    Sniffer("eth0").sniff_loop(callback);
+    Sniffer("wlan0").sniff_loop(callback);
 }
