@@ -5,6 +5,7 @@
 // Copyright   : GPL V2
 // Description : Hello World in C, Ansi-style
 //============================================================================
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <tins/tins.h>
@@ -12,20 +13,21 @@
 #include <string>
 #include <tins/tins.h>
 #include <set>
-
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 using namespace Tins;
 
-// BSSIDs which we've already seen
-std::set<HWAddress<6>> addrs;
-// This will be the content of the OUI field in the vendor specific
-// tagged option if it's a WPS tag.
-const HWAddress<3> expected_oui("00:50:F2");
 
 bool handler(const PDU& pdu) {
     // Only process it once
+	auto t = std::time(nullptr);
+	    auto tm = *std::localtime(&t);
+
     const Dot11Data &ip = pdu.rfind_pdu<Dot11Data>(); // Find the IP layer
-    std::cout << ip.src_addr() << " -> "
-              << ip.dst_addr() << ':' << std::endl;
+    std::cout<< std::put_time(&tm, "%d-%m-%Y %H:%M:%S")<<' '  << ip.src_addr() << " "
+              << ip.dst_addr() << std::endl;
     return true;
 }
 
