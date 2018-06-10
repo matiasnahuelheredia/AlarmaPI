@@ -1,6 +1,6 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0 -std=c++11 -Wunused-variable
 
-OBJS =		src/Alarma.o src/GPIOClass.o
+OBJS =		src/Alarma.o src/PinGPIOAlarm.o
 
 
 LIBS = -lpthread -ltins 

@@ -17,7 +17,7 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
-#include "GPIOClass.h"
+#include "PinGPIOAlarm.h"
 using namespace std;
 using namespace Tins;
 
@@ -31,11 +31,9 @@ bool handler(const PDU& pdu) {
 
 
 int main(int argc, char* argv[]) {
-
-	/*GPIOClass* gpio17 = new GPIOClass("17");
-	gpio17->export_gpio(); //export GPIO17
-	gpio17->setdir_gpio("out"); //GPI17 set to output
-	gpio17->setval_gpio("1");*/
+	cout<< "iniciando\n";
+	/*PinGPIOAlarm* gpio17 = new PinGPIOAlarm("17",true);
+	gpio17->export_gpio(); */
 	if(argc != 2) {
         std::cout << "Usage: " <<* argv << " <DEVICE>\n";
         return 1;
