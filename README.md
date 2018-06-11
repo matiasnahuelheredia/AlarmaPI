@@ -63,11 +63,18 @@ ldconfig
 
 cd /opt/
 git clone https://github.com/eidheim/Simple-Web-Server.git
+cd Simple-Web-Server
 mkdir build
 cd build
 cmake ..
 make
 cd ..
+
+git clone https://github.com/JoachimSchurig/CppGPIO.git
+cd CppGPIO
+make -j4
+sudo make install
+
 ```
 
 ### Compile and run

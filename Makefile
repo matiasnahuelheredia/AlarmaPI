@@ -1,9 +1,9 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0 -std=c++11 -Wunused-variable
 
-OBJS =		src/Alarma.o src/PinGPIOAlarm.o
+OBJS =		src/Alarma.o 
 
 
-LIBS = -lpthread -ltins 
+LIBS = -lpthread -ltins -lcppgpio
 
 TARGET =	build/Alarma 
 

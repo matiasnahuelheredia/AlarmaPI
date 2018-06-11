@@ -17,10 +17,10 @@
 #include <iomanip>
 #include <ctime>
 #include <sstream>
-#include "PinGPIOAlarm.h"
+#include <cppgpio.hpp>
+#define BOARD RASPBERRY_PI
 using namespace std;
 using namespace Tins;
-
 
 bool handler(const PDU& pdu) {
 	    const Dot11ProbeResponse &ip = pdu.rfind_pdu<Dot11ProbeResponse>();
@@ -28,12 +28,13 @@ bool handler(const PDU& pdu) {
 	    return true;
 }
 
-
-
 int main(int argc, char* argv[]) {
 	cout<< "iniciando\n";
-	/*PinGPIOAlarm* gpio17 = new PinGPIOAlarm("17",true);
-	gpio17->export_gpio(); */
+	/*GPIO::DigitalOut out(18);
+	out.on();
+	std::this_thread::sleep_for(std::chrono::milliseconds(1));
+	out.off();*/
+
 	if(argc != 2) {
         std::cout << "Usage: " <<* argv << " <DEVICE>\n";
         return 1;
