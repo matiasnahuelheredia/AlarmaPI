@@ -30,11 +30,14 @@ bool handler(const PDU& pdu) {
 
 int main(int argc, char* argv[]) {
 	cout<< "iniciando\n";
+	while(true)
+	{
 	GPIO::DigitalOut out(4);
 	out.on();
 	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	cout<< "apagando\n";
 	out.off();
+	}
     /*
 	if(argc != 2) {
         std::cout << "Usage: " <<* argv << " <DEVICE>\n";
