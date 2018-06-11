@@ -30,11 +30,11 @@ bool handler(const PDU& pdu) {
 
 int main(int argc, char* argv[]) {
 	cout<< "iniciando\n";
-	/*GPIO::DigitalOut out(18);
+	GPIO::DigitalOut out(17);
 	out.on();
 	std::this_thread::sleep_for(std::chrono::milliseconds(1));
-	out.off();*/
-
+	out.off();
+    /*
 	if(argc != 2) {
         std::cout << "Usage: " <<* argv << " <DEVICE>\n";
         return 1;
@@ -45,6 +45,6 @@ int main(int argc, char* argv[]) {
     config.set_rfmon(true);
     config.set_promisc_mode(true);
     Sniffer sniffer(argv[1], config);
-    sniffer.sniff_loop(handler);
+    sniffer.sniff_loop(handler);*/
 	return 0;
 }
