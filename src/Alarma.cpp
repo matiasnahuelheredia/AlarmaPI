@@ -32,7 +32,8 @@ int main(int argc, char* argv[]) {
 	cout<< "iniciando\n";
 	GPIO::DigitalOut out(4);
 	out.on();
-	std::this_thread::sleep_for(std::chrono::milliseconds(1));
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	cout<< "apagando\n";
 	out.off();
     /*
 	if(argc != 2) {
