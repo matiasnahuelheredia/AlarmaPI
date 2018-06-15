@@ -34,6 +34,19 @@ void I2cDisplay::lcd_toggle_enable(int bits)
   lcd.write((bits & ~ENABLE));
   std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY*1000));
 }
+void I2cDisplay::lcd_string(char* message,int line)
+{
+  // Send string to display
+
+  //message = message.ljust(this->LCD_WIDTH," ");
+
+  this->lcd_byte(line, this->LCD_CMD);
+
+  /*for int i=0 in range(this->LCD_WIDTH)
+  {
+    lcd_byte(ord(message[i]),LCD_CHR);
+  }*/
+}
 
 void I2cDisplay::init()
 {

@@ -17,6 +17,7 @@ private:
 	GPIO::I2C lcd;
 	int lcd_byte(int bits,bool data);
 	void lcd_toggle_enable(int bits);
+	void lcd_string(char* message,int line);
 	int	I2C_ADDR  = 0x27; // I2C device address
 	int LCD_WIDTH = 24;   // Maximum characters per line
 	int LCD_CHR = 1; // Mode - Sending data
