@@ -44,6 +44,8 @@ int main(int argc, char* argv[]) {
 
 	I2cDisplay disp;
 	disp.init();
+	int linea=0x80;
+	disp.lcd_string(argv[0],linea);
 
 	/*while(true)
 	{
