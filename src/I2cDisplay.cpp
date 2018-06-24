@@ -7,6 +7,7 @@
 
 #include "I2cDisplay.h"
 #include <iostream>
+#include <string>
 #define BOARD RASPBERRY_PI
 using namespace std;
 I2cDisplay::I2cDisplay() {
@@ -17,7 +18,7 @@ int I2cDisplay::lcd_byte(int bits,bool data)
 {
 	int bits_high = data | (bits & 0xF0) | this->LCD_BACKLIGHT;
 	int bits_low = data | ((bits<<4) & 0xF0) | LCD_BACKLIGHT;
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY));
 	lcd.write(bits_high);
 	this->lcd_toggle_enable(bits_high);
 	lcd.write(bits_low);
@@ -28,20 +29,21 @@ return	bits_high;
 void I2cDisplay::lcd_toggle_enable(int bits)
 {
 // Toggle enable
-  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY*1000));
+  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY));
   lcd.write((bits | ENABLE));
-  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY*1000));
+  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY));
   lcd.write((bits & ~ENABLE));
-  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY*1000));
+  std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY));
 }
 
-void I2cDisplay::lcd_string(char* message,int line)
+void I2cDisplay::lcd_string(string message,int line)
 {
-
+	char *cstr = new char[message.length() + 1];
+	strcpy(cstr, message.c_str());
         this->lcd_byte(line,this->LCD_CMD);
         for(int i=0;i<this->LCD_WIDTH;i=i+1)
         {
-        int bits=message[i];
+        int bits=cstr[i];
         lcd_byte(bits,this->LCD_CHR);
         }
 }
@@ -56,7 +58,7 @@ void I2cDisplay::init()
 	lcd_byte(0x0C,LCD_CMD); // 001100 Display On,Cursor Off, Blink Off
 	lcd_byte(0x28,LCD_CMD); // 101000 Data length, number of lines, font size
 	lcd_byte(0x01,LCD_CMD); // 000001 Clear display
-	std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY*1000));
+	std::this_thread::sleep_for(std::chrono::milliseconds(this->E_DELAY));
 	cout<< "iniciando";
 }
 

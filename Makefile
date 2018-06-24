@@ -5,7 +5,7 @@ OBJS =		src/Alarma.o src/I2cDisplay.o
 
 LIBS = -lpthread -ltins -lcppgpio
 
-TARGET =	build/Alarma 
+TARGET =	build/Alarma
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)

@@ -8,6 +8,9 @@
 #ifndef SRC_I2CDISPLAY_H_
 #define SRC_I2CDISPLAY_H_
 #include <cppgpio.hpp>
+#include <string>
+#include <iostream>
+using namespace std;
 class I2cDisplay {
 public:
 	I2cDisplay();
@@ -16,7 +19,7 @@ public:
 	int LCD_LINE_2 = 0xC0; // LCD RAM address for the 2nd line
 	int LCD_LINE_3 = 0x94; // LCD RAM address for the 3rd line
 	int LCD_LINE_4 = 0xD4; // LCD RAM address for the 4th line
-	void lcd_string(char* message,int line);
+	void lcd_string(string message,int line);
 	virtual ~I2cDisplay();
 private:
 	GPIO::I2C lcd;
@@ -29,7 +32,7 @@ private:
 	int LCD_BACKLIGHT  = 0x08;  // On
 	int ENABLE = 0b00000100; // Enable bit
 	int E_PULSE = 0.0005;
-	int E_DELAY = 0.0005;
+	int E_DELAY = 1;
 };
 
 #endif /* SRC_I2CDISPLAY_H_ */
